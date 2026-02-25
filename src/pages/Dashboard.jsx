@@ -10,13 +10,18 @@ import {
   CreditCard,
   MessageSquare,
   Shield,
-  Plus
+  Plus,
+  Zap,
+  Clock,
+  Wifi,
+  WifiOff
 } from 'lucide-react'
 import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts'
 import { useStore } from '../store/useStore'
 import ServiceCard from '../components/ServiceCard'
 import MetricCard from '../components/MetricCard'
 import StatusIndicator from '../components/StatusIndicator'
+import SystemHealthMonitor from '../components/SystemHealthMonitor'
 
 const Dashboard = () => {
   const [timeRange, setTimeRange] = useState('24h')
@@ -164,6 +169,24 @@ const Dashboard = () => {
             </ResponsiveContainer>
           </div>
         </div>
+      </div>
+
+      {/* System Health Monitor */}
+      <div className="card p-6">
+        <div className="flex items-center justify-between mb-4">
+          <h2 className="text-lg font-semibold text-gray-900">System Health Monitor</h2>
+          <div className="flex items-center space-x-2">
+            <div className="flex items-center space-x-1 text-sm text-gray-600">
+              <Wifi className="h-4 w-4 text-green-500" />
+              <span>Real-time</span>
+            </div>
+            <div className="flex items-center space-x-1 text-sm text-gray-600">
+              <Clock className="h-4 w-4" />
+              <span>Updated 15s ago</span>
+            </div>
+          </div>
+        </div>
+        <SystemHealthMonitor />
       </div>
 
       {/* Services Overview */}
